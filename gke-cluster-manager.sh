@@ -15,9 +15,9 @@ echo -e "Installing Pre-requisites"
 Check_() {
     while true ; do 
         for i in \| \/ \- \\ \| \/ \- \\; do 
-        echo -n -e "\r$1  $i  "
-        sleep 0.5
-        done                                                                                    "
+            echo -n -e "\r$1  $i  "
+            sleep 0.5
+        done                                                                                    
     [ -f /tmp/print-stat ] && break 2
     done
 }
@@ -29,7 +29,7 @@ Stat() {
                 echo -e "Tool $2  - \e[32mINSTALLED\e0m"
                 return
             else
-                echo -e "Tools $2 - \e[31mNOT-INSTALLED\e[0m"
+                echo -e "Tool $2 - \e[31mNOT-INSTALLED\e[0m"
                 return 1
             fi
             ;;
@@ -48,5 +48,5 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google.repo
-       
+
 fi 
