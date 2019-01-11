@@ -23,13 +23,17 @@ Check_() {
     done
 }
 
+Stop_Check() {
+    sleep 4
+    touch /tmp/print-stat
+}
+
 Stat() {
     case $1 in 
         install) 
             if [ $3 -eq 0 ]; then 
-                touch /tmp/print-stat
+                Stop_Check
                 echo -e "\rTool $2  - \e[32mINSTALLED\e[0m"
-                touch /tmp/print-stat
                 return
             else
                 echo -e "\rTool $2 - \e[31mNOT-INSTALLED\e[0m"
@@ -51,6 +55,5 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google.repo
-    touch /tmp/print-stat
-
+    Stop_Check
 fi 
