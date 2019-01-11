@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "
-### This shell script is going to manage the cluster for ease of practice during the trainings.
+
 ### This shell script downloads a manager into server and can perform the following actions...
         1. Create Cluster
         2. Delete Cluster
@@ -10,7 +10,7 @@ echo -e "
             b. Delete number of nodes
 "
 
-echo -e "Installing Pre-requisites"
+echo -e "Installing Pre-requisites\n"
 
 Check_() {
     rm -f /tmp/print-stat
@@ -43,6 +43,24 @@ Stat() {
     esac
 }
 
+IStat() {
+    if [ $2 -eq 0 ]; then 
+        echo -e "Installing $2 - \e[32mSUCCESS\e[0m"
+    else 
+        echo -e "Installing $2 - \e[31mFAILURE\e[0m"
+        Stop_Check 
+        exit 1
+    fi
+}
+
+### Main Program
+
+## Check Root Privileges
+if [ $(id -u) -ne 0 ]; then 
+    echo -e "\n \e[31m You should be root user to perform this script. Run with sudo or run as root user"
+    exit 1
+fi
+
 Check_ "Checking Kubectl" & &>/dev/null
 which kubectl &>/dev/null 
 Stat install "kubectl" $?                 
@@ -55,5 +73,25 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google.repo
+    yum install kubectl -y &>/dev/null
+    IStat kubectl $?
     Stop_Check
 fi 
+
+Check_ "Checking gcloud" & &>/dev/null
+which gcloud &>/dev/null 
+Stat install gcloud $?
+if [ $? -ne 0 ]; then 
+    echo '[google-cloud-sdk]
+name=Google Cloud SDK
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google.repo
+    yum install google-cloud-sdk -y &>/dev/null 
+    IStat gcloud $?
+    Stop_Check
+fi 
+
