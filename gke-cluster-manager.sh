@@ -13,6 +13,7 @@ echo -e "
 echo -e "Installing Pre-requisites"
 
 Check_() {
+    rm -f /tmp/print-stat
     while true ; do 
         for i in \| \/ \- \\ \| \/ \- \\; do 
             echo -n -e "\r$1  $i  "
@@ -48,5 +49,6 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' > /etc/yum.repos.d/google.repo
+    touch /tmp/print-stat
 
 fi 
