@@ -27,7 +27,9 @@ Stat() {
     case $1 in 
         install) 
             if [ $3 -eq 0 ]; then 
+                touch /tmp/print-stat
                 echo -e "\rTool $2  - \e[32mINSTALLED\e[0m"
+                touch /tmp/print-stat
                 return
             else
                 echo -e "\rTool $2 - \e[31mNOT-INSTALLED\e[0m"
