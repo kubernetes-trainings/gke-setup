@@ -19,7 +19,8 @@ Check_() {
         for i in \| \/ \- \\ \| \/ \- \\; do 
             echo -n -e "\r$MSG  $i  "
             sleep 0.5
-        done                                                                                    
+        done    
+    break                                                                                
     [ -f /tmp/print-stat ] && return
     done
 }
