@@ -99,7 +99,7 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
 fi 
 
 #echo 
-#Check_ "You are suppose to open the following URL in a browser and get the code and copy it over here" & &>/dev/null
+Check_ "You are suppose to open the following URL in a browser and get the code and copy it over here" & &>/dev/null
 sleep 6
 Stop_Check
 sleep 4
