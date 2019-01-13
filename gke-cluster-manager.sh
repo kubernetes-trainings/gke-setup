@@ -57,7 +57,7 @@ IStat() {
 
 ## Check Root Privileges
 if [ $(id -u) -ne 0 ]; then 
-    echo -e " \e[1;31m You should be root user to perform this script. Run with sudo or run as root user\n"
+    echo -e " \e[1;31m You should be root user to perform this script. Run with sudo or run as root user\n\e[0m"
     exit 1
 fi
 
