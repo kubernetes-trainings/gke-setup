@@ -25,7 +25,7 @@ Check_() {
 
 Stop_Check() {
     sleep 4
-    echo -e "\r                                                                                                 "
+    echo -n -e "\r                                                                                                 "
     touch /tmp/print-stat
 }
 
