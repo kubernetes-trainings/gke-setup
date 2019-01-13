@@ -13,10 +13,11 @@ echo -e "
 echo -e "Installing Pre-requisites\n"
 
 Check_() {
+    MSG=$1
     rm -f /tmp/print-stat
     while true ; do 
         for i in \| \/ \- \\ \| \/ \- \\; do 
-            echo -n -e "\r$1  $i  "
+            echo -n -e "\r$MSG  $i  "
             sleep 0.5
         done                                                                                    
     [ -f /tmp/print-stat ] && return
