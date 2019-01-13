@@ -95,4 +95,9 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
     Stop_Check
 fi 
 
+echo 
+Check_ "You are suppose to open the following URL in a browser and get the code and copy it over here" & &>/dev/null
+sleep 10 
+Stop_Check
 
+gcloud auth login 
