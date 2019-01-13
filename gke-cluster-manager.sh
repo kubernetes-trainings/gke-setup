@@ -25,6 +25,7 @@ Check_() {
 
 Stop_Check() {
     sleep 4
+    echo 
     touch /tmp/print-stat
 }
 
