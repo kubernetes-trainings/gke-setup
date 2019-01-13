@@ -45,9 +45,9 @@ Stat() {
 
 IStat() {
     if [ $2 -eq 0 ]; then 
-        echo -e "Installing $2 - \e[32mSUCCESS\e[0m"
+        echo -e "Installing $1 - \e[32mSUCCESS\e[0m"
     else 
-        echo -e "Installing $2 - \e[31mFAILURE\e[0m"
+        echo -e "Installing $1 - \e[31mFAILURE\e[0m"
         Stop_Check 
         exit 1
     fi
@@ -57,7 +57,7 @@ IStat() {
 
 ## Check Root Privileges
 if [ $(id -u) -ne 0 ]; then 
-    echo -e "\n \e[31m You should be root user to perform this script. Run with sudo or run as root user"
+    echo -e " \e[1;31m You should be root user to perform this script. Run with sudo or run as root user\n"
     exit 1
 fi
 
@@ -94,4 +94,5 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
     IStat gcloud $?
     Stop_Check
 fi 
+
 
