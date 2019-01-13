@@ -19,7 +19,7 @@ Check_() {
             echo -n -e "\r$1  $i  "
             sleep 0.5
         done                                                                                    
-    [ -f /tmp/print-stat ] && break 2
+    [ -f /tmp/print-stat ] && return
     done
 }
 
