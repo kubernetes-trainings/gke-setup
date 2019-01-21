@@ -124,7 +124,7 @@ gcloud compute instances list &>/dev/null
 Stat status_check "Checking Google Cloud Access" $?
 
 Check_ "Setting Up Management Utility.." & &>/dev/null 
-wget -q https://raw.githubusercontent.com/kubernetes-trainings/gke-setup/master/kubernetes-lab-manager -O /bin/kubernetes-lab-manager
+curl -s https://raw.githubusercontent.com/kubernetes-trainings/gke-setup/master/kubernetes-lab-manager -O /bin/kubernetes-lab-manager
 chmod +x /bin/kubernetes-lab-manager
 if [ $? -eq 0 ]; then 
     Stop_Check
