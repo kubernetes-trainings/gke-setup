@@ -89,7 +89,10 @@ case $ACTION in
         echo -e "\n\n"
     ;;
     setup-config) 
-        
+        echo -e "Updating Kubectl config"
+        gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
+        echo -e "\n"
+    ;;
     backup|scale*) echo "Still in Progress" ;;
 
     *) Usage ;;
