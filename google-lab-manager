@@ -1,18 +1,20 @@
 #!/bin/bash
 
 Utility="\e[31m$0\e[0m"
+B="\e[1m"
+N="\e[0m"
 
 Usage() {
     echo -e "
 $Utility manages the kubernetes cluster for making ease of lab setup for Kubernetes trainings
 
 For Creating CLuster:
-  $Utility create   <Cluster-Name>          -> To create the cluster with default options.
-  $Utility list                             -> To list the clusters availble in your google account.
-  $Utility destroy  <Cluster-Name>          -> To delete the cluster with default options.
-  $Utility backup   <Cluster-Name>          -> To take the backup of complete cluster (In Development, may not work as expected)
-  $Utility scaleup    <no-of-nodes>         -> Scales up to the desired number of nodes given. (Max of 5)
-  $Utility scaledown  <no-of-nodes>         -> Scales down to the desired number of nodes given. (Min of 1)
+  $Utility ${B}create${N}   <Cluster-Name>          -> To create the cluster with default options.
+  $Utility ${B}list${N}                             -> To list the clusters availble in your google account.
+  $Utility ${B}destroy${N}  <Cluster-Name>          -> To delete the cluster with default options.
+  $Utility ${B}backup${N}   <Cluster-Name>          -> To take the backup of complete cluster (In Development, may not work as expected)
+  $Utility ${B}scaleup${N}    <no-of-nodes>         -> Scales up to the desired number of nodes given. (Max of 5)
+  $Utility ${B}scaledown${N}  <no-of-nodes>         -> Scales down to the desired number of nodes given. (Min of 1)
 
     "
     exit 1
