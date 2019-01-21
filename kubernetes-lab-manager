@@ -30,7 +30,7 @@ Check_Cluster_Exists() {
     Cluster_Name=$1
     gcloud container clusters list| grep $Cluster_Name &>/dev/null 
     if [ $? -eq 0 ]; then 
-        echo -e "\tCluster Already exists"
+        echo -e "\t*** Cluster Already exists ***"
         return 1
     fi 
 }
