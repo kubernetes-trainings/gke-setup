@@ -60,7 +60,7 @@ case $ACTION in
     create) 
         Cluster_Name=$2
         if [ -z "$Cluster_Name" ]; then 
-            echo -e "\n\e[1;31m*** Argument Missing\e[0m"
+            echo -e "\n\e[1;31m*** Argument Missing ***\e[0m"
             Usage 
         fi
         echo -e "Creating Cluster"
