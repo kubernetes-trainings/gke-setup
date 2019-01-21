@@ -21,7 +21,7 @@ Following are the CLuster Actions:
 }
 
 Run() {
-    echo -e "\nRunning the following command\n\t\e[1m$@\e[0m\n"
+    echo -e "\nRunning the following command\n\n\t\e[1m$@\e[0m\n"
 }
 
 
