@@ -127,9 +127,9 @@ Check "Setting Up Management Utility.." & &>/dev/null
 wget -q https://raw.githubusercontent.com/kubernetes-trainings/gke-setup/master/kubernetes-lab-manager -O /bin/kubernetes-lab-manager
 chmod +x /bin/kubernetes-lab-manager
 if [ $2 -eq 0 ]; then 
-    echo -e "Installing $1 - \e[32mSUCCESS\e[0m"
+    echo -e " - \e[32mSUCCESS\e[0m"
 else 
-    echo -e "Installing $1 - \e[31mFAILURE\e[0m"
+    echo -e " - \e[31mFAILURE\e[0m"
     Stop_Check 
     exit 1
 fi
