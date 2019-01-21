@@ -20,9 +20,30 @@ Following are the CLuster Actions:
     exit 1
 }
 
+Run() {
+    echo -e "\nRunning the following command\n\t\e[1m$@\e[0m\n"
+}
+
+
 if [ "$1" = "help" -o -z "$1" ]; then 
     Usage
 fi 
 ACTION=$1
 ACTION=$(echo $ACTION | tr [A-Z] [a-z])
-echo $ACTION
+
+gcloud compute instances list &>/dev/null 
+if [ $? -ne 0 ]; then 
+    echo -e "\e[1;31mFailed to connect to google cloud\e[0m\n\n\tYou can use the following URL and setup google cloud access on this server\n\t\tSOME-URL"
+    exit 2
+fi
+
+case $ACTION in 
+    list) 
+        Run "gcloud container clusters list"
+        COUNT=$(gcloud container clusters list| wc -l ) 
+        if [ $COUNT -eq 0 ]; then 
+            echo "There are no clusters in this project"
+            exit 0 
+        fi 
+    ;;
+esac
