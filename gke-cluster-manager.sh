@@ -44,6 +44,16 @@ Stat() {
                 return 1
             fi
             ;;
+        status_check) 
+            if [ $3 -eq 0 ]; then 
+                Stop_Check
+                echo -e "\r$2   -   \e[32mSUCCESS\e[0m"
+                return
+            else 
+                Stop_Check
+                echo -e "\r$2   -   \e[32mERROR\e[0m"
+                exit 1
+            ;;
     esac
 }
 
@@ -106,3 +116,7 @@ Stop_Check
 sleep 4
 
 gcloud auth login 
+
+Check_ "Checking Google Cloud Access" & &>/dev/null 
+gcloud compute instances list &>/dev/null 
+Stat status_check "Checking Google Cloud Access" $?
