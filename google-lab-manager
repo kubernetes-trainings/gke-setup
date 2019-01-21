@@ -7,11 +7,15 @@ Usage() {
 $Utility manages the kubernetes cluster for making ease of lab setup for Kubernetes trainings
 
 For Creating CLuster:
-  $Utility create <Cluster-Name>        -> To create the cluster with default options.
-  $Utility list                         -> To list the clusters availble in your google account.
-  $Utility destroy <Cluster-Name>       -> To delete the cluster with default options.
-  $Utility backup <Cluster-Name>        -> To take the backup of complete cluster (In Development, may not work as expected)
+  $Utility create   <Cluster-Name>          -> To create the cluster with default options.
+  $Utility list                             -> To list the clusters availble in your google account.
+  $Utility destroy  <Cluster-Name>          -> To delete the cluster with default options.
+  $Utility backup   <Cluster-Name>          -> To take the backup of complete cluster (In Development, may not work as expected)
+  $Utility scaleup    <no-of-nodes>         -> Scales up to the desired number of nodes given. (Max of 5)
+  $Utility scaledown  <no-of-nodes>         -> Scales down to the desired number of nodes given. (Min of 1)
+
     "
+    exit 1
 }
 
 if [ "$1" = "help" -o -z "$1" ]; then 
