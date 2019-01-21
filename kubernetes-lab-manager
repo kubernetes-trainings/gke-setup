@@ -82,7 +82,7 @@ case $ACTION in
         [ $? -eq 2 ] && echo -e "\t*** Cluster does not exists ***" && exit 0
         Run "gcloud container clusters delete $Cluster_Name --zone $ZONE"
         gcloud container clusters delete $Cluster_Name --zone $ZONE
-        
+        echo -e "\n\n"
     ;;
     *) Usage ;;
 esac
