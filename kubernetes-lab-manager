@@ -88,6 +88,8 @@ case $ACTION in
         gcloud container clusters delete $Cluster_Name --zone $ZONE
         echo -e "\n\n"
     ;;
+    setup-config) 
+        
     backup|scale*) echo "Still in Progress" ;;
 
     *) Usage ;;
