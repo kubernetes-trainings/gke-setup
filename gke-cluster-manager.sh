@@ -53,6 +53,7 @@ Stat() {
                 Stop_Check
                 echo -e "\r$2   -   \e[32mERROR\e[0m"
                 exit 1
+            fi
             ;;
     esac
 }
