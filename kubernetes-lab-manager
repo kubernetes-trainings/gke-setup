@@ -12,11 +12,11 @@ $Utility manages the kubernetes cluster for making ease of lab setup for Kuberne
 Following are the Cluster Actions:
   $Utility ${B}create${N}     <Cluster-Name>                -> To create the cluster with default options.
   $Utility ${B}list${N}                                     -> To list the clusters availble in your google account.
-  $Utility ${B}destroy${N}    <Cluster-Name>                -> To delete the cluster with default options.
-  $Utility ${B}backup${N}     <Cluster-Name>                -> To take the backup of complete cluster. ${B}(In Development, may not work as expected)${N}
-  $Utility ${B}scaleup${N}    <Cluster-Name> <no-of-nodes>  -> Scales up to the desired number of nodes given. (Max of 5)
-  $Utility ${B}scaledown${N}  <Cluster-Name> <no-of-nodes>  -> Scales down to the desired number of nodes given. (Min of 1)
-  $Utility ${B}setup-config${N} <Cluster-Name>               -> Upodate the kube-config for the cluster.
+  $Utility ${B}destroy${N}      <Cluster-Name>                -> To delete the cluster with default options.
+  $Utility ${B}backup${N}       <Cluster-Name>                -> To take the backup of complete cluster. ${B}(In Development, may not work as expected)${N}
+  $Utility ${B}scaleup${N}      <Cluster-Name> <no-of-nodes>  -> Scales up to the desired number of nodes given. (Max of 5)
+  $Utility ${B}scaledown${N}    <Cluster-Name> <no-of-nodes>  -> Scales down to the desired number of nodes given. (Min of 1)
+  $Utility ${B}setup-config${N} <Cluster-Name>                -> Upodate the kube-config for the cluster.
 
   \e[1;4;33;41mNote:\e[0m Cluster Names should be in small characters and numbers with out any special characters other than '-'
     "
