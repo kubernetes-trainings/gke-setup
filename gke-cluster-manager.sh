@@ -123,7 +123,5 @@ Check_ "Checking Google Cloud Access" & &>/dev/null
 gcloud compute instances list &>/dev/null 
 Stat status_check "Checking Google Cloud Access" $?
 
-
-
 Check "Setting Up Management Utility.." & &>/dev/null 
 wget 
