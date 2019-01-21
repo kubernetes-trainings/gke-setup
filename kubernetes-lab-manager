@@ -59,7 +59,7 @@ case $ACTION in
     ;;
     create) 
         Cluster_Name=$2
-        if [ -z "Cluster_Name" ]; then 
+        if [ -z "$Cluster_Name" ]; then 
             echo -e "\e[1;31mArgument Missing\e[0m\n"
             Usage 
         fi
