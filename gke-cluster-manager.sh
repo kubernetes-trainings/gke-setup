@@ -40,6 +40,7 @@ Stat() {
                 return
             else
                 echo -e "\rTool $2 - \e[31mNOT-INSTALLED\e[0m"
+                Stop_Check
                 return 1
             fi
             ;;
