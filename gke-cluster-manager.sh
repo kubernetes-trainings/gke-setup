@@ -131,5 +131,5 @@ if [ $2 -eq 0 ]; then
 else 
     echo -e "Installing $1 - \e[31mFAILURE\e[0m"
     Stop_Check 
-        exit 1
-    fi
+    exit 1
+fi
