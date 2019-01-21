@@ -71,7 +71,7 @@ case $ACTION in
         Run "gcloud container clusters create $Cluster_Name --zone $ZONE"
         gcloud container clusters create $Cluster_Name --zone $ZONE 2>/dev/null
         echo -e "\n"
-        echo -e "Updating "
+        echo -e "Updating Kubectl config"
     ;;
     delete)
         Cluster_Name=$2
