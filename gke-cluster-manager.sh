@@ -127,10 +127,10 @@ Check_ "Setting Up Management Utility.." & &>/dev/null
 curl -s https://raw.githubusercontent.com/kubernetes-trainings/gke-setup/master/kubernetes-lab-manager -o /bin/kubernetes-lab-manager
 if [ $? -eq 0 ]; then 
     Stop_Check
-    echo -e " - \e[32mSUCCESS\e[0m"
+    echo -e "Setting Up Management Utility - \e[32mSUCCESS\e[0m"
 else 
     Stop_Check
-    echo -e " - \e[31mFAILURE\e[0m" 
+    echo -e "Setting Up Management Utility - \e[31mFAILURE\e[0m" 
     exit 1
 fi
 chmod +x /bin/kubernetes-lab-manager
