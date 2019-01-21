@@ -80,7 +80,7 @@ case $ACTION in
         echo -e "Creating Cluster"
         Check_Cluster_Exists $Cluster_Name
         [ $? -eq 2 ] && echo -e "\t*** Cluster does not exists ***" && exit 0
-        
+        Run "gcloud container clusters delete $Cluster_Name --zone $ZONE"
 
     ;;
     *) Usage ;;
