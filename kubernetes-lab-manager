@@ -91,7 +91,10 @@ case $ACTION in
     ;;
     setup-config) 
         Cluster_Name=$2
-        
+        if [ -z "$Cluster_Name" ]; then 
+            echo -e "\n\e[1;31m*** Argument Missing ***\e[0m"
+            Usage 
+        fi
         echo -e "Updating Kubectl config"
         Run "gcloud container clusters get-credentials $Cluster_Name --zone $ZONE"
         gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
