@@ -30,7 +30,6 @@ Check_Cluster_Exists() {
     Cluster_Name=$1
     gcloud container clusters list| grep $Cluster_Name &>/dev/null 
     if [ $? -eq 0 ]; then 
-        echo -e "\t*** Cluster Already exists ***"
         return 1
     fi 
 }
@@ -65,7 +64,7 @@ case $ACTION in
         fi
         echo -e "Creating Cluster"
         Check_Cluster_Exists $Cluster_Name
-        [ $? -eq 1 ] && exit 0
+        [ $? -eq 1 ] && echo -e "\t*** Cluster Already exists ***" && exit 0
         Run "gcloud container clusters create $Cluster_Name --zone $ZONE"
         gcloud container clusters create $Cluster_Name --zone $ZONE 2>/dev/null
         echo -e "\n\n"
