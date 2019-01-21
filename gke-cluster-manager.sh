@@ -126,4 +126,4 @@ Stat status_check "Checking Google Cloud Access" $?
 Check "Setting Up Management Utility.." & &>/dev/null 
 wget -q https://raw.githubusercontent.com/kubernetes-trainings/gke-setup/master/kubernetes-lab-manager -O /bin/kubernetes-lab-manager
 chmod +x /bin/kubernetes-lab-manager
-echo -e ""
+echo -e "Completed"
