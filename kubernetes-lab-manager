@@ -90,6 +90,7 @@ case $ACTION in
         echo -e "\n\n"
     ;;
     setup-config) 
+    
         echo -e "Updating Kubectl config"
         Run "gcloud container clusters get-credentials $Cluster_Name --zone $ZONE"
         gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
