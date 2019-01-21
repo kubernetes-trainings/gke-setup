@@ -71,7 +71,7 @@ case $ACTION in
         echo -e "\n\n"
     ;;
     delete)
-    
+        Cluster_Name=
     ;;
     *) Usage ;;
 esac
