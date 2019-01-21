@@ -1,9 +1,16 @@
 #!/bin/bash
 
+Utility="\e[31m$0\e[0m"
+
 Usage() {
-    echo "
-    Hello Line1
-    Line2
+    echo -e "
+$Utility manages the kubernetes cluster for making ease of lab setup for Kubernetes trainings
+
+For Creating CLuster:
+  $Utility create <Cluster-Name>        -> To create the cluster with default options.
+  $Utility list                         -> To list the clusters availble in your google account.
+  $Utility destroy <Cluster-Name>       -> To delete the cluster with default options.
+  $Utility backup <Cluster-Name>        -> To take the backup of complete cluster (In Development, may not work as expected)
     "
 }
 
