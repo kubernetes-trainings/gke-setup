@@ -3,12 +3,13 @@
 Utility="\e[31m$0\e[0m"
 B="\e[1m"
 N="\e[0m"
+ZONE=us-east1-b
 
 Usage() {
     echo -e "
 $Utility manages the kubernetes cluster for making ease of lab setup for Kubernetes trainings
 
-Following are the CLuster Actions:
+Following are the Cluster Actions:
   $Utility ${B}create${N}   <Cluster-Name>          -> To create the cluster with default options.
   $Utility ${B}list${N}                             -> To list the clusters availble in your google account.
   $Utility ${B}destroy${N}  <Cluster-Name>          -> To delete the cluster with default options.
@@ -16,12 +17,22 @@ Following are the CLuster Actions:
   $Utility ${B}scaleup${N}    <no-of-nodes>         -> Scales up to the desired number of nodes given. (Max of 5)
   $Utility ${B}scaledown${N}  <no-of-nodes>         -> Scales down to the desired number of nodes given. (Min of 1)
 
+  \e[1;4;33;41mNote: \e[0m Cluster Names should be in small characters and numbers with out any special characters other than '-'
     "
     exit 1
 }
 
 Run() {
-    echo -e "\nRunning the following command\n\n\t\e[1m$@\e[0m\n"
+    echo -e "\nRunning the following command\n\n\t\e[1m$ $@\e[0m\n"
+}
+
+Check_Cluster_Exists() {
+    Cluster_Name=$1
+    gcloud container clusters list| grep $Cluster_Name &>/dev/null 
+    if [ $? -eq 0 ]; then 
+        echo -e "\tCluster Already exists"
+        return 1
+    fi 
 }
 
 
@@ -45,5 +56,18 @@ case $ACTION in
             echo "There are no clusters in this project"
             exit 0 
         fi 
+    ;;
+    create) 
+        Cluster_Name=$2
+        if [ -z "Cluster_Name" ]; then 
+            echo -e "\e[1;31mArgument Missing\e[0m\n"
+            Usage 
+        fi
+        echo -e "Creating Cluster"
+        Check_Cluster_Exists $Cluster_Name
+        [ $? -eq 1 ] && exit 0
+        Run "gcloud container clusters create $Cluster_Name --zone $ZONE"
+        gcloud container clusters create $Cluster_Name --zone $ZONE 2>/dev/null
+        echo -e "\n\n"
     ;;
 esac
