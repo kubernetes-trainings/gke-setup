@@ -8,7 +8,7 @@ Usage() {
     echo -e "
 $Utility manages the kubernetes cluster for making ease of lab setup for Kubernetes trainings
 
-For Creating CLuster:
+Following are the CLuster Actions:
   $Utility ${B}create${N}   <Cluster-Name>          -> To create the cluster with default options.
   $Utility ${B}list${N}                             -> To list the clusters availble in your google account.
   $Utility ${B}destroy${N}  <Cluster-Name>          -> To delete the cluster with default options.
