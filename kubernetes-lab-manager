@@ -70,7 +70,8 @@ case $ACTION in
         [ $? -eq 1 ] && echo -e "\t*** Cluster Already exists ***" && exit 0
         Run "gcloud container clusters create $Cluster_Name --zone $ZONE"
         gcloud container clusters create $Cluster_Name --zone $ZONE 2>/dev/null
-        echo -e "\n\n"
+        echo -e "\n"
+        echo ""
     ;;
     delete)
         Cluster_Name=$2
