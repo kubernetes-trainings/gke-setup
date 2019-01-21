@@ -13,7 +13,7 @@ Following are the Cluster Actions:
   $Utility ${B}create${N}     <Cluster-Name>                -> To create the cluster with default options.
   $Utility ${B}list${N}                                     -> To list the clusters availble in your google account.
   $Utility ${B}destroy${N}    <Cluster-Name>                -> To delete the cluster with default options.
-  $Utility ${B}backup${N}     <Cluster-Name>                -> To take the backup of complete cluster ${B}(In Development, may not work as expected)
+  $Utility ${B}backup${N}     <Cluster-Name>                -> To take the backup of complete cluster ${B}(In Development, may not work as expected)${N}
   $Utility ${B}scaleup${N}    <Cluster-Name> <no-of-nodes>  -> Scales up to the desired number of nodes given. (Max of 5)
   $Utility ${B}scaledown${N}  <Cluster-Name> <no-of-nodes>  -> Scales down to the desired number of nodes given. (Min of 1)
 
