@@ -126,9 +126,11 @@ Stat status_check "Checking Google Cloud Access" $?
 Check "Setting Up Management Utility.." & &>/dev/null 
 wget -q https://raw.githubusercontent.com/kubernetes-trainings/gke-setup/master/kubernetes-lab-manager -O /bin/kubernetes-lab-manager
 chmod +x /bin/kubernetes-lab-manager
-if [ $2 -eq 0 ]; then 
+if [ $? -eq 0 ]; then 
+    Stop_Check
     echo -e " - \e[32mSUCCESS\e[0m"
 else 
+    Stop_Check
     echo -e " - \e[31mFAILURE\e[0m" 
     exit 1
 fi
