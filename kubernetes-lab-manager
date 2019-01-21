@@ -79,6 +79,7 @@ case $ACTION in
         fi
         echo -e "Creating Cluster"
         Check_Cluster_Exists $Cluster_Name
+        [ $? -eq 1 ] && echo -e "\t*** Cluster Already exists ***" && exit 0
     ;;
     *) Usage ;;
 esac
