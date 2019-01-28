@@ -78,7 +78,10 @@ case $ACTION in
         echo -e "Updating Cluster Role Access"
         Run "kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)"
         kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)
-        
+        echo -e "\n"
+        echo -e "Updating Cluster Role Access"
+        Run "kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)"
+        kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)
     ;;
     delete)
         Cluster_Name=$2
