@@ -85,7 +85,7 @@ case $ACTION in
         echo -e "\n"
         echo -e "Fetching Token to access Dashboard"
         SECRET=$(kubectl describe serviceaccount kubernetes-dashboard -n kube-system | grep Tokens | awk '{print $NF}')
-        TOKEN=$(kubectl describe secrets $SECRET -n kube-system) 
+        TOKEN=$(kubectl describe secrets $SECRET -n kube-system ) 
 
     ;;
     delete)
