@@ -76,7 +76,7 @@ case $ACTION in
         gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
         echo -e "\n"
         echo -e "Updating Cluster Role Access"
-        Run "gcloud container clusters get-credentials $Cluster_Name --zone $ZONE"
+        Run "kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)"
         gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
     ;;
     delete)
