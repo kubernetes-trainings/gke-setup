@@ -75,7 +75,7 @@ case $ACTION in
         Run "gcloud container clusters get-credentials $Cluster_Name --zone $ZONE"
         gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
         echo -e "\n"
-        echo -e "Updating Kubectl config"
+        echo -e "Updating Cluster Role Access"
         Run "gcloud container clusters get-credentials $Cluster_Name --zone $ZONE"
         gcloud container clusters get-credentials $Cluster_Name --zone $ZONE
     ;;
