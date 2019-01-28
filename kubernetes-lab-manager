@@ -87,7 +87,7 @@ case $ACTION in
         SECRET=$(kubectl describe serviceaccount kubernetes-dashboard -n kube-system | grep Tokens | awk '{print $NF}')
         TOKEN=$(kubectl describe secrets $SECRET -n kube-system | grep ^token | awk '{print $NF}') 
         echo -e "\n Open the URL in browser and copy and paste this key"
-        echo -e ""
+        echo -e "Kubernetes Dashboard = "
 
     ;;
     delete)
