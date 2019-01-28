@@ -80,7 +80,7 @@ case $ACTION in
         kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)
         echo -e "\n"
         echo -e "Creating Kubernetes Cluster Dashboard"
-        Run ""
+        Run "https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml"
         kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin --user $(gcloud config get-value account)
     ;;
     delete)
