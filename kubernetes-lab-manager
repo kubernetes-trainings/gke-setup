@@ -84,7 +84,8 @@ case $ACTION in
         kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
         echo -e "\n"
         echo -e "Fetching Token to access Dashboard"
-        SECRET=$()
+        SECRET=$(kubectl describe serviceaccount kubernetes-dashboard -n kube-system | grep Tokens | awk '{print $NF}')
+        TOKEN=$()
 
     ;;
     delete)
