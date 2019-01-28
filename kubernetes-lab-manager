@@ -89,7 +89,6 @@ case $ACTION in
         URL=$(kubectl cluster-info | grep master | awk '{print $NF}')
         echo -e "\n Open the URL in browser and copy and paste this key"
         echo -e "Kubernetes Dashboard = $URL\nTOKEN = $TOKEN"
-
     ;;
     delete)
         Cluster_Name=$2
