@@ -96,7 +96,7 @@ case $ACTION in
             echo -e "\n\e[1;31m*** Argument Missing ***\e[0m"
             Usage 
         fi
-        echo -e "Creating Cluster"
+        echo -e "\e[1mDeleting Cluster"
         Check_Cluster_Exists $Cluster_Name
         [ $? -eq 2 ] && echo -e "\t*** Cluster does not exists ***" && exit 0
         Run "gcloud container clusters delete $Cluster_Name --zone $ZONE"
