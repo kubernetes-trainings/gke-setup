@@ -86,7 +86,7 @@ case $ACTION in
         echo -e "Fetching Token to access Dashboard"
         SECRET=$(kubectl describe serviceaccount kubernetes-dashboard -n kube-system | grep Tokens | awk '{print $NF}')
         TOKEN=$(kubectl describe secrets $SECRET -n kube-system | grep ^token | awk '{print $NF}') 
-        URL=$(kubectl cluster-info | grep master | awk '{print $NF}')
+        URL=$(kubectl get svc kubernetes-dashboard -n kube-system | grep LoadBalancer |awk '{print $4}')
         echo -e "\n Open the URL in browser and copy and paste this key\n\e[1m"
         echo -e "Kubernetes Dashboard = $URL\nTOKEN = $TOKEN\e[0m"
     ;;
