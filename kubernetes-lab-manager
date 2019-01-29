@@ -3,7 +3,7 @@
 Utility="\e[31m$0\e[0m"
 B="\e[1m"
 N="\e[0m"
-ZONE=us-ce1-b
+ZONE=us-central1-b
 
 Usage() {
     echo -e "
