@@ -69,7 +69,7 @@ case $ACTION in
         Check_Cluster_Exists $Cluster_Name
         [ $? -eq 1 ] && echo -e "\t*** Cluster Already exists ***" && exit 0
         Run "gcloud container clusters create $Cluster_Name --zone $ZONE"
-        gcloud container clusters create $Cluster_Name --zone $ZONE | grep -v WARN
+        gcloud container clusters create $Cluster_Name --zone $ZONE 2>&1 | grep -v WARN
         echo -e "\n"
         echo -e "Updating Kubectl config"
         Run "gcloud container clusters get-credentials $Cluster_Name --zone $ZONE"
